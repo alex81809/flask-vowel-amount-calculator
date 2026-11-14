@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>🔤 Vowel Counter</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="text">Enter your text:</label>
+                <input type="text" id="text" name="text" value="{{ input_string }}" placeholder="Type something here..."
+                    required>
+            </div>
+            <button type="submit">Count Vowels</button>
+        </form>
+
+        {% if vowel_count is not none %}
+        <div class="result">
+            <p>Text: <em>"{{ input_string }}"</em></p>
+            <p>Total Vowels Found: <strong>{{ vowel_count }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
